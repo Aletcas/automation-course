@@ -55,7 +55,6 @@
             <version>2.15.2</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <!-- Maven Compiler Plugin -->
@@ -77,6 +76,15 @@
                 <version>${surefire.version}</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
+                    <argLine>
+                        -Dfile.encoding=UTF-8
+                    </argLine>
+                    <properties>
+                        <property>
+                            <name>listener</name>
+                            <value>io.qameta.allure.junit5.AllureJunit5</value>
+                        </property>
+                    </properties>
                     <systemPropertyVariables>
                         <allure.results.directory>target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
@@ -90,8 +98,8 @@
                 <version>2.12.0</version>
                 <configuration>
                     <reportVersion>${allure.version}</reportVersion>
-                    <resultsDirectory>target/allure-results</resultsDirectory>
-                    <reportDirectory>target/site/allure-maven-plugin</reportDirectory>
+                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                    <reportDirectory>${project.build.directory}/site/allure-maven-plugin</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>
