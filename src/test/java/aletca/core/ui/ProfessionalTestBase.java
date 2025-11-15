@@ -1,4 +1,4 @@
-package aletca.core;
+package aletca.core.ui;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
