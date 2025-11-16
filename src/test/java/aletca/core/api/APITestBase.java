@@ -22,7 +22,7 @@ public abstract class APITestBase {
     }
 
     @AfterEach
-    void tearDown() {
+    protected void tearDown() {
         if (browser != null) {
             browser.close();
         }
